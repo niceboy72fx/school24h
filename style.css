@@ -1,0 +1,505 @@
+.infor-information {
+}
+
+.information-email,
+.information-phone {
+}
+
+.courses-content,
+.student-content,
+.teacher-container,
+.partner-container,
+.intro-content,
+.about-form {
+  width: 70pc;
+  height: 100%;
+}
+
+/*----------------------Brand Name-------------------------------- */
+.brand-tag-component {
+  padding: 20px 10px 10px 30px;
+  margin: 10px 10px 10px 10px;
+}
+
+.tag-name-component {
+  color: var(--dark-blue-background);
+  font-size: 26px;
+  font-weight: 829;
+}
+
+hr.tag-line-component {
+  border: 3.5px solid var(--yellow-background);
+  border-radius: 5px;
+  width: 65px;
+  float: left;
+}
+
+.brand-name-component {
+  color: var(--dark-blue-background);
+  font-size: 2rem;
+  font-weight: 829;
+  margin: 10px 0px 0px 0px;
+}
+
+/*----------------------------Home-------------------------------- */
+.home {
+  width: 100% !important;
+  height: 59em !important;
+  display: block;
+}
+
+.home-intro {
+  width: 100%;
+  height: 71%;
+  padding: 30px 0px 118px 0px;
+  background: url("./asset/image/inro.png");
+  /* filter: blur(2px); */
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.intro-content {
+  z-index: 2;
+}
+
+.content-brand {
+  width: 60%;
+  color: white;
+  padding: 8px 0px 8px 0px;
+}
+
+.content-brand h1 {
+  font-size: 60px;
+  font-weight: 841;
+  animation: animationText;
+  animation-duration: 2s;
+  position: relative;
+}
+
+.content-brand p {
+  font-weight: 241;
+  animation: animationText2;
+  animation-duration: 2s;
+  position: relative;
+}
+
+.home-carousel {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  width: 100%;
+  height: 13%;
+  z-index: 2;
+}
+
+.caroucel-slider {
+  display: inherit;
+  width: 65pc;
+  height: 120%;
+  padding: 40px;
+  background-color: var(--medium-dark-blue-background);
+  border-radius: 7px;
+  z-index: 2;
+}
+
+.content-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.content-button button {
+  border: none;
+  width: 150px;
+  height: 50px;
+  margin: 15px;
+  font-size: larger;
+  font-weight: 600;
+  padding: 10px 10px 10px 10px;
+  border-radius: 5px;
+}
+
+.slider-intro {
+  width: 28%;
+  font-size: 1.85rem;
+  color: white;
+  font-weight: 641;
+  margin: 10px 40px 10px 40px;
+}
+
+.slider-app {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  width: 72%;
+  height: 100%;
+}
+
+.slider-app button {
+  background-color: var(--medium-dark-blue-background);
+  color: white;
+  border: none;
+  font-size: 5rem;
+}
+
+.app-caroucel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch; /* Internet Explorer 10+ */
+  scrollbar-width: none;
+}
+
+.app-caroucel ::-webkit-scrollbar {
+  -webkit-overflow-scrolling: touch;
+}
+
+.caroucel-assert {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 30px 10px 30px;
+  border-radius: 20px;
+  margin: 0px 32px 0px 32px;
+}
+
+.color-caroucel {
+  background-color: aqua;
+}
+
+.caroucel-assert img {
+  width: 80px;
+  height: 80px;
+  padding-bottom: 10px;
+}
+
+.caroucel-assert p {
+  font-size: 1.17rem;
+  font-weight: 500;
+  margin: 0;
+  color: white !important;
+}
+
+.button-signup {
+  background-color: var(--yellow-background);
+  margin: 10px 40px 10px 40px;
+}
+
+@keyframes animationText {
+  0% {
+    left: -20%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes animationText2 {
+  0% {
+    bottom: -20%;
+  }
+  100% {
+    bottom: 0%;
+  }
+}
+
+/* ----------------------------about-------------------------------- */
+.about {
+  width: 100%;
+
+  padding: 50px 0px 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./asset/image/student.png");
+  background-size: 600px 700px;
+  background-repeat: no-repeat;
+  background-position: 85%;
+}
+.about-form {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-intro {
+  width: 50%;
+  height: 40pc;
+  background-color: white;
+  box-shadow: 0px 2px 20px var(--gray-blue-background);
+  border-radius: 7px;
+}
+
+.intro-title {
+  margin: 0px 30px 0px 40px;
+  font-weight: 370;
+  line-height: 35px;
+  color: var(--dark-blue-background);
+}
+/* ----------------------------student-------------------------------- */
+.student {
+  background-color: var(--medium-dark-blue-background);
+  width: 100%;
+  padding: 60px 0px 60px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.student-content {
+  margin: 30px;
+}
+
+.content-student {
+  display: flex;
+  flex-direction: row;
+}
+
+.student-infor {
+  display: flex;
+  width: 50%;
+  margin: 30px;
+}
+
+.infor-assert {
+  position: relative;
+}
+
+.infor-assert span {
+  background-color: var(--yellow-background);
+  position: absolute;
+  border-radius: 100px;
+  left: 70px;
+  top: -10px;
+}
+
+.infor-assert span > i {
+  font-size: 18px;
+  padding: 15px 15px 15px 15px;
+}
+
+.infor-assert img {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+}
+
+.infor-text {
+  margin-left: 30px;
+  color: white;
+}
+
+.infor-text p {
+  display: inline;
+}
+
+/* ----------------------------courses-------------------------------- */
+.courses {
+  width: 100%;
+  padding: 50px 0px 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.courses-content {
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.control button {
+  background-color: white;
+  color: var(--dark-blue-background);
+  border: none;
+  font-size: 3.5rem;
+  margin: 0px 4px 0px 4px;
+}
+
+.content-box {
+  display: flex;
+  flex-direction: row;
+  width: 26.8%;
+  box-shadow: 0px 2px 20px var(--gray-blue-background);
+  border-radius: 2%;
+  margin: 15px 38px 0px 38px;
+}
+
+.content-box img {
+  width: 300px;
+  height: 168px;
+  border-radius: 2%;
+}
+
+.box-boxCourse h3 {
+  margin: 15px 15px 15px 15px;
+}
+
+.author-name {
+  margin: 10px 10px 10px 10px;
+}
+
+.author-name h3 {
+  margin: 0px;
+}
+
+.star {
+  margin: 15px 15px 15px 15px;
+}
+
+.star i {
+  color: var(--yellow-background);
+}
+
+.boxCourse-author {
+  display: flex;
+
+  flex-direction: row;
+}
+
+.boxCourse-author img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  margin: 15px 15px 15px 15px;
+}
+
+/* ----------------------------teacher-------------------------------- */
+
+.teacher {
+  width: 100%;
+  padding: 50px 0px 50px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teacher-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.container-title,
+.container-grid {
+  width: 40%;
+  padding: 30px 30px 30px 30px;
+}
+
+.container-title {
+  animation: animationText;
+  animation-duration: 2s;
+  position: relative;
+  box-shadow: 0px 2px 20px var(--gray-blue-background);
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 10px;
+  padding: 10px;
+  margin-left: 150px;
+}
+
+.grid-container {
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 1px solid black;
+  text-align: center;
+
+  border-radius: 1%;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+
+.content-view p {
+  padding: 50px 30px 40px 30px;
+  font-weight: 370;
+  line-height: 35px;
+  color: var(--dark-blue-background);
+}
+
+.image1 {
+  background-image: url(./asset/image/teacher_1.jpg);
+  background-position: -80px 0px;
+  background-repeat: no-repeat;
+}
+
+.image2 {
+  background-image: url(./asset/image/teacher_2.jpg);
+  background-position: -80px 0px;
+  background-repeat: no-repeat;
+}
+
+.image3 {
+  background-image: url(./asset/image/teacher_3.jpg);
+  background-position: -80px 0px;
+  background-repeat: no-repeat;
+}
+
+.image4 {
+  background-image: url(./asset/image/teacher_4.jpg);
+  background-position: -80px 0px;
+  background-repeat: no-repeat;
+}
+
+.container-name {
+  background-color: white;
+  padding: 5px 5px 5px 5px;
+  margin: 7px;
+  color: var(--medium-dark-blue-background);
+  border-radius: 5px;
+}
+
+.container-name h6,
+p {
+  margin: 1px;
+}
+
+.container-name h6 {
+  font-size: 18px;
+}
+
+/* ----------------------------partner-------------------------------- */
+.partner {
+  width: 100%;
+  height: 10pc;
+  padding: 20px 0px 20px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-container {
+}
+
+.partner-container h3 {
+  color: var(--dark-blue-background);
+  margin: 0;
+}
+
+.container-name {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container-img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 10px 0px 20px 0px;
+}
+
+.container-img img {
+  width: 10%;
+
+  margin: 0px 30px 0px 30px;
+}

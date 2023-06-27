@@ -1,0 +1,29 @@
+{
+  "table_name": "course",
+  "table_data": [
+    {
+      "id": 1,
+      "course_id": 2,
+      "editor_id": 0,
+      "question_name": "how to create a new question ?",
+      "question_solve": [
+        {
+          "id_solve": 1,
+          "solve_name": "how to solve"
+        },
+        {
+          "id_solve": 2,
+          "solve_name": "how to solve 2"
+        },
+        {
+          "id_solve": 3,
+          "solve_name": "how to solve 3"
+        }
+      ],
+      "solved": 1,
+      "is_ok": true,
+      "pendings": true,
+      "comment": ""
+    }
+  ]
+}

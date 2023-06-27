@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;500&display=swap");
+:root {
+  --dark-blue-background: #021d3a;
+  --medium-dark-blue-background: #07294d;
+  --gray-blue-background: #395471;
+  --white-blue-background: #132c4b;
+  --yellow-background: #ffc600;
+  font-family: "Inter";
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: auto;
+}
+.header {
+  width: 100%;
+  height: fit-content;
+  box-shadow: 0px 2px 40px var(--gray-blue-background);
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.header-infor {
+  width: auto !important;
+  height: fit-content;
+  padding: 10px;
+  background-color: var(--medium-dark-blue-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.infor-information {
+  width: 70pc !important;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.information-text {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.text-email,
+.text-phone {
+  margin: 0px 5px 0px 5px;
+  color: white;
+}
+
+.information-login a {
+  color: var(--yellow-background);
+  text-decoration: none;
+  font-weight: 818;
+  margin: 0px 10px 0px 10px;
+}
+
+.header-navigation {
+  width: auto !important;
+  height: 5pc;
+  padding: 9px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  background-color: white;
+}
+
+.navigation-section {
+  width: 70pc;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.section-navi {
+  display: inline;
+  text-transform: uppercase;
+}
+
+.section-navi ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.section-navi ul > li {
+  float: left;
+}
+
+.section-navi ul > li > a {
+  display: block;
+  text-align: center;
+  padding: 16px;
+  color: var(--gray-blue-background);
+  text-decoration: none;
+  font-weight: 818;
+  margin: 1px;
+}
+
+.section-navi ul > li > a:hover {
+  color: var(--yellow-background);
+}
+
+/* ----------------------------footer-------------------------------- */
+footer {
+  width: 100%;
+  /* padding: 20px 0px 20px 0px; */
+}
+
+.footer-infor {
+  width: 100%;
+  height: 15pc;
+  background-color: var(--medium-dark-blue-background);
+}
+
+.footer-name {
+  width: 100%;
+  height: 5pc;
+  background-color: var(--dark-blue-background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name-banner {
+  font-size: 12px;
+  font-weight: 700;
+  color: white;
+}
+
+/*----------------------------loader------------------------------*/
+
+.unloader {
+  visibility: hidden;
+  display: none;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+.loader {
+}
+
+.page {
+  transition: opacity 0.5s ease;
+}
+
+.layer {
+  width: 20px;
+  height: 20px;
+  background-color: var(--dark-blue-background);
+  position: absolute;
+}
+
+.layer1 {
+  left: 0px;
+  top: 0px;
+  animation: animationCube1 2s infinite linear;
+}
+
+.layer2 {
+  left: 16px;
+  top: 0px;
+  animation: animationCube2 2s infinite linear;
+}
+.layer3 {
+  left: 32px;
+  top: 0px;
+}
+.layer4 {
+  left: 0px;
+  top: 16px;
+  animation: animationCube4 2s infinite linear;
+}
+.layer5 {
+  left: 16px;
+  top: 16px;
+  animation: animationCube5 2s infinite linear;
+}
+.layer6 {
+  left: 32px;
+  top: 16px;
+  animation: animationCube6 2s infinite linear;
+}
+.layer7 {
+  left: 0px;
+  top: 32px;
+  animation: animationCube7 2s infinite linear;
+}
+.layer8 {
+  left: 16px;
+  top: 32px;
+  animation: animationCube8 2s infinite linear;
+}
+
+.color-1 {
+  background-color: var(--yellow-background);
+}
+
+.rubix-cube {
+  border: 1px solid transparent;
+  background-color: transparent;
+  position: absolute;
+  top: 45%;
+  left: 48%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.hide {
+  display: none;
+}
+
+@keyframes animationCube1 {
+  50% {
+    left: 0px;
+  }
+  60% {
+    left: 16px;
+  }
+  70% {
+    left: 16px;
+  }
+  80% {
+    left: 16px;
+  }
+  90% {
+    left: 16px;
+  }
+  100% {
+    left: 16px;
+  }
+}
+
+@keyframes animationCube2 {
+  30% {
+    top: 0px;
+  }
+  40% {
+    top: 0px;
+  }
+  50% {
+    top: 16px;
+  }
+  60% {
+    top: 16px;
+  }
+  70% {
+    top: 16px;
+  }
+  80% {
+    top: 16px;
+  }
+  90% {
+    top: 16px;
+  }
+  100% {
+    top: 16px;
+  }
+}
+
+@keyframes animationCube4 {
+  60% {
+    top: 16px;
+  }
+  70% {
+    top: 0px;
+  }
+  80% {
+    top: 0px;
+  }
+  90% {
+    top: 0px;
+  }
+  100% {
+    top: 0px;
+  }
+}
+
+@keyframes animationCube5 {
+  30% {
+    left: 16px;
+  }
+  40% {
+    left: 32px;
+  }
+  50% {
+    left: 32px;
+  }
+  60% {
+    left: 32px;
+  }
+  70% {
+    left: 32px;
+  }
+  80% {
+    left: 32px;
+  }
+  90% {
+    left: 32px;
+  }
+  100% {
+    left: 32px;
+  }
+}
+
+@keyframes animationCube6 {
+  20% {
+    top: 16px;
+    left: 32px;
+  }
+  30% {
+    top: 32px;
+    left: 32px;
+  }
+  40% {
+    top: 32px;
+    left: 32px;
+  }
+  50% {
+    top: 32px;
+    left: 32px;
+  }
+  60% {
+    top: 32px;
+    left: 32px;
+  }
+  70% {
+    top: 32px;
+    left: 32px;
+  }
+  80% {
+    top: 32px;
+    left: 32px;
+  }
+  90% {
+    top: 32px;
+    left: 32px;
+  }
+  100% {
+    top: 32px;
+    left: 16px;
+  }
+}
+
+@keyframes animationCube7 {
+  70% {
+    top: 32px;
+  }
+  80% {
+    top: 16px;
+  }
+  90% {
+    top: 16px;
+  }
+  100% {
+    top: 16px;
+  }
+}
+
+@keyframes animationCube8 {
+  80% {
+    left: 16px;
+  }
+  90% {
+    left: 0px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+
+@keyframes animationEaseDown {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
