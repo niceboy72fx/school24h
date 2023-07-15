@@ -10,3 +10,9 @@ window.addEventListener("load", () => {
     page.setAttribute("class", "page");
   }, 2000);
 });
+
+if (
+  window.location.href == "./" &&
+  localStorage.getItem("accessToken") === undefined
+) {
+}

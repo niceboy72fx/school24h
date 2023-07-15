@@ -146,19 +146,30 @@ body {
 /*------------------------------MainPage------------------------------*/
 .page-section {
   width: 100%;
-  min-height: 50.9pc;
+  /* min-height: 50.9pc; */
   display: flex;
   flex-direction: row;
 }
 
 .section-sidebar {
-  width: 17%;
+  width: 15%;
   background-color: white;
-  box-shadow: 2px 2px 14px var(--dark-blue-background);
+  background-color: var(--medium-dark-blue-background);
+  /* box-shadow: 2px 2px 14px var(--dark-blue-background); */
 }
 
 .section-main {
   width: 83%;
+}
+
+.main-path {
+  /* background-color: red; */
+  width: 100%;
+  margin: 20px 20px 20px 20px;
+}
+
+.name-title {
+  font-size: 40px;
 }
 
 /* ----------------------------footer-------------------------------- */

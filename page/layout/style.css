@@ -1,0 +1,16 @@
+.sidebar-name {
+  padding: 13px 0px 13px 0px;
+  margin: 20px 0px 20px 0px;
+  display: flex;
+  font-size: 16px;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: white;
+}
+
+.name-menu {
+  /* background-color: blue; */
+  padding: 10px 0px 10px 0px;
+  margin-left: 40px;
+}

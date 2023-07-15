@@ -1,8 +1,12 @@
+import { activeDB } from "./middleWare/index.js";
+//----------------------------------------------------------------
 const appCaroucel = document.querySelector(".app-caroucel");
 const buttonRightCaroucel = document.querySelectorAll(".app-button")[1];
 const buttonLeftCaroucel = document.querySelectorAll(".app-button")[0];
 const totalItems = appCaroucel.children.length;
 //----------------------Caroucel----------------------------------------------------
+
+activeDB();
 
 const changeWidth = 192;
 

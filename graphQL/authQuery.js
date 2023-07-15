@@ -1,37 +1,46 @@
-import account from "../mongoDB/account.json";
-
-const [table_data] = account;
+import {
+  authGenerator,
+  fetchAllAccount,
+  postAccount,
+} from "../middleWare/index.js";
 
 export const getQueryAccount = (req) => {
-  for (data in table_data) {
-    return req.userName == data.user_id &&
-      req.userPassword == data.user_password
-      ? true
-      : false;
+  const flagLogin = false;
+  const checkValue = fetchAllAccount().some((data) => {
+    return (
+      req.userName == data.user_name && req.userPassword == data.user_password
+    );
+  });
+  var roleUser = {};
+  fetchAllAccount().forEach((data) => {
+    if (req.userName == data.user_name) {
+      roleUser = {
+        role: data.role,
+        flag: true,
+      };
+    }
+  });
+  if (checkValue) {
+    authGenerator(roleUser);
   }
 };
 
-export const test = () => {
-  return "oke";
-};
-
 export const registerQueryAccount = (req) => {
-  const temp = table_data.map((data) =>
-    req.userName == data.user_id && req.userPassword == data.user_password
-      ? true
-      : false
-  );
+  const checkValue = fetchAllAccount().some((data) => {
+    return req.userName == data.user_name;
+  });
   const registerAccount = (req) => {
     const data = {
-      user_id: table_data.length() + 1,
+      user_id: fetchAllAccount().length + 1,
       user_name: req.userName,
       user_password: req.userPassword,
       role: "user",
     };
-    table_data.append(data);
-    return { comment: "Already registered", registed: true };
+    postAccount(data);
+    console.log(true);
   };
-  return temp == true
-    ? { comment: "Account has been exist! ", registed: false }
-    : registerAccount(req);
+  registerAccount(req);
+  // return { comment: "Already registered", registed: true };
 };
+
+// { comment: "Account has been exist! ", registed: false
