@@ -1,12 +1,9 @@
-export const HandleDashBoard = () => {
-  //----------------------Style --------------------
-  const dashboard = document.getElementsByClassName("dashboard")[0];
-  dashboard.style.margin = "12px 12px 12px 12px";
-  dashboard.innerHTML = "";
+export const DashBoard = () => {
+  const element = document.createElement("div");
+  element.setAttribute("class", "table");
+  element.style.margin = "12px 12px 12px 12px";
+  element.innerHTML = `
+     huatao
+   `;
+  return element;
 };
-
-export const DashBoard = `
-           <div class="dashboard">
-	          
-	   </div>
-	   `;

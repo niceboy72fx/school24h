@@ -1,27 +1,31 @@
-import { DashBoard, HandleDashBoard } from "./dashboard.js";
+import { DashBoard } from "./dashboard.js";
+import { User } from "./user.js";
+import { Course } from "./course.js";
 
-export const mainComponent = (props) => {
-  const mainContainer = document.getElementsByClassName("main-components")[0];
-  console.log(mainContainer);
-
-  //----------------------------------------------------------------
+export default function AdminPage() {
   const menuComponent = [
-    { id: 1, htmlComponent: DashBoard, jsComponent: HandleDashBoard },
-    { id: 2, htmlComponent: DashBoard, jsComponent: HandleDashBoard },
-    { id: 3, htmlComponent: DashBoard, jsComponent: HandleDashBoard },
+    { id: 1, component: DashBoard() },
+    { id: 2, component: User() },
+    { id: 3, component: Course() },
   ];
 
-  const selectComponents = menuComponent.find((item) => item.id == props);
+  const listOptions = [
+    {
+      id: 1,
+      menuName: "Trang chủ",
+      select: true,
+    },
+    {
+      id: 2,
+      menuName: "Quản lí user",
+      select: false,
+    },
+    {
+      id: 3,
+      menuName: "Quản lí khóa học",
+      select: false,
+    },
+  ];
 
-  if (selectComponents) {
-    const container = document.createElement("div");
-    container.setAttribute("class", "container");
-    //----------style object ----------------
-    container.style.margin = "20px 20px 20px 20px";
-    //----------------------------------------------------------------
-    container.innerHTML = selectComponents.htmlComponent;
-    mainContainer.innerHTML = "";
-    mainContainer.appendChild(container);
-    selectComponents.jsComponent();
-  }
-};
+  return { menuComponent, listOptions };
+}

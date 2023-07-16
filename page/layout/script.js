@@ -1,29 +1,16 @@
-import { mainComponent } from "../components/admin/index.js";
+import { mainComponent } from "../components/index.js";
 import { useState } from "../../hook/index.js";
+import { logout } from "../../middleWare/index.js";
 const sideBar = document.getElementsByClassName("section-sidebar")[0];
 const mainContainer = document.getElementsByClassName("main-container")[0];
 const sectionMain = document.getElementsByClassName("section-main");
+const popupLogout = document.getElementsByClassName("section-account")[0];
+const showLogout = document.getElementsByClassName("account-logout")[0];
 //-------------------------Get element in html.join --------------------
 const sidebarName = document.getElementsByClassName("sidebar-name");
 const nameMenu = document.getElementsByClassName("name-menu");
 //----------------------------------------------------------------
-const listOptions = [
-  {
-    id: 1,
-    menuName: "Trang chủ",
-    select: true,
-  },
-  {
-    id: 2,
-    menuName: "Quản lí user",
-    select: false,
-  },
-  {
-    id: 3,
-    menuName: "Quản lí khóa học",
-    select: false,
-  },
-];
+const listOptions = mainComponent().listOptions;
 
 const sideBarList = listOptions.map((temp) => {
   ``;
@@ -72,3 +59,16 @@ const sectionMainHTML = `<div class="main-path"  >
    
   </div>`;
 mainContainer.innerHTML = sectionMainHTML;
+
+//----Handle popup logout------------------------
+popupLogout.addEventListener("click", () => {
+  if (showLogout.style.display == "none") {
+    showLogout.style.display = "block";
+  } else {
+    showLogout.style.display = "none";
+  }
+});
+
+showLogout.addEventListener("click", () => {
+  logout();
+});

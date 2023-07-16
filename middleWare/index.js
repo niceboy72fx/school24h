@@ -1,27 +1,37 @@
+import { morkDataDefault } from "../asset/json/default.js";
 //-------------------------------COMMON----------------
 export const activeDB = () => {
-  localStorage.setItem(
-    "account",
-    JSON.stringify({
-      table_name: "account",
-      table_data: [
-        {
-          user_id: 0,
-          user_name: "hoang72fx",
-          user_password: "12345",
-          role: "admin",
-        },
-      ],
-    })
-  );
-  localStorage.setItem(
-    "courses",
-    JSON.stringify({ table_name: "courses", table_data: [] })
-  );
-  localStorage.setItem(
-    "questions",
-    JSON.stringify({ table_name: "questions", table_data: [] })
-  );
+  if (!localStorage.getItem("account") && !localStorage.getItem("courses")) {
+    localStorage.setItem(
+      "account",
+      JSON.stringify({
+        table_name: "account",
+        table_data: [
+          {
+            user_id: 0,
+            user_name: "hoang72fx",
+            user_password: "12345",
+            role: "admin",
+          },
+        ],
+      })
+    );
+    localStorage.setItem(
+      "courses",
+      JSON.stringify({
+        table_name: "courses",
+        table_data: [
+          {
+            id: 0,
+            courseName: "CSS Stylesheet",
+            author: "rock lee",
+            is_ok: true,
+            question: morkDataDefault,
+          },
+        ],
+      })
+    );
+  }
 };
 //------------------------------Auth Context ----------------
 export const authGenerator = (props) => {
@@ -31,9 +41,14 @@ export const authGenerator = (props) => {
         localStorage.getItem("accessToken").clear();
         window.location.replace("/index.html");
       };
-  if (props.role == "user") {
-    window.location.replace("/index.html");
+  if (props.role == "user" || props.role == "admin") {
+    window.location.replace("/page/layout/index.html");
   }
+};
+
+export const logout = () => {
+  localStorage.removeItem("accessToken");
+  window.location.replace("/index.html");
 };
 //------------------------------Account----------------
 export const fetchAllAccount = () => {
