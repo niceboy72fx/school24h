@@ -93,15 +93,21 @@ export const deleteAccount = (user_id) => {
   );
 };
 
-//------------------------------Course---------------------
-export const fetchAllCourse = () => {};
+//---------------------------fetch all data------------------------
+const { table_data } = JSON.parse(localStorage.getItem("courses"));
+//-----------------Course---------------------
+export const fetchAllCourse = () => {
+  return table_data;
+};
 
 export const postCourse = (req) => {};
 
 export const deleteCourse = (id) => {};
 
-//------------------------------Question-------------------
-export const fetchAllQuestion = () => {};
+//-----------------Question-------------------
+export const fetchAllQuestion = () => {
+  return table_data.question;
+};
 
 export const postQuestion = (req) => {};
 
@@ -109,4 +115,4 @@ export const putQuestion = (id) => {};
 
 export const deleteQuestion = (id) => {};
 
-//-------------------------------------------------
+//-------------------------------------------

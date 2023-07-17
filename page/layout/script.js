@@ -53,8 +53,7 @@ for (var i = 0; i < sidebarName.length; i++) {
 // mainComponent(localStorage.getItem("tempID"));
 
 const sectionMainHTML = `<div class="main-path"  >
-<div class="name-title">Admin Dashboard</div>
-  </div>
+
   <div class="main-components">
    
   </div>`;

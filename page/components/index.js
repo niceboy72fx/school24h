@@ -16,6 +16,10 @@ export const mainComponent = (props) => {
 
   const selectComponents = menuComponent.find((item) => item.id == props);
 
+  // const title = listOptions.find((item) => item.id == selectComponents.id);
+
+  // console.log(title);
+
   if (selectComponents) {
     const container = document.createElement("div");
     container.setAttribute("class", "container");
@@ -27,5 +31,5 @@ export const mainComponent = (props) => {
     mainContainer.appendChild(container);
   }
 
-  return { listOptions };
+  return { listOptions, selectComponents };
 };
