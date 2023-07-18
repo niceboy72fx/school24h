@@ -22,13 +22,13 @@ const sideBarList = listOptions.map((temp) => {
 sideBar.innerHTML = sideBarList.join("");
 
 const defaultValueList = useState(1);
-if (sidebarName[0].getAttribute("option") == "true") {
-  sidebarName[0].style.backgroundColor = "white";
-  sidebarName[0].style.color = "var(--dark-blue-background)";
-  defaultValueList.setState(1);
-  console.log(defaultValueList.getState());
-  // mainComponent(defaultValueList.getState());
-}
+// if (sidebarName[0].getAttribute("option") == "true") {
+//   sidebarName[0].style.backgroundColor = "white";
+//   sidebarName[0].style.color = "var(--dark-blue-background)";
+//   defaultValueList.setState(1);
+//   console.log(defaultValueList.getState());
+//   // mainComponent(defaultValueList.getState());
+// }
 for (var i = 0; i < sidebarName.length; i++) {
   sidebarName[i].addEventListener("click", function () {
     for (let j = 0; j < sidebarName.length; j++) {
