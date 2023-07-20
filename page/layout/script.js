@@ -6,6 +6,7 @@ const mainContainer = document.getElementsByClassName("main-container")[0];
 const sectionMain = document.getElementsByClassName("section-main");
 const popupLogout = document.getElementsByClassName("section-account")[0];
 const showLogout = document.getElementsByClassName("account-logout")[0];
+const accountName = document.getElementById("account-name");
 //-------------------------Get element in html.join --------------------
 const sidebarName = document.getElementsByClassName("sidebar-name");
 const nameMenu = document.getElementsByClassName("name-menu");
@@ -71,3 +72,7 @@ popupLogout.addEventListener("click", () => {
 showLogout.addEventListener("click", () => {
   logout();
 });
+
+//----------------------------------------------------------------
+const accountN = localStorage.getItem("userName");
+accountName.innerHTML = `${accountN}`;

@@ -1,37 +1,37 @@
 import { morkDataDefault } from "../asset/json/default.js";
 //-------------------------------COMMON----------------
 export const activeDB = () => {
-  if (!localStorage.getItem("account") && !localStorage.getItem("courses")) {
-    localStorage.setItem(
-      "account",
-      JSON.stringify({
-        table_name: "account",
-        table_data: [
-          {
-            user_id: 0,
-            user_name: "hoang72fx",
-            user_password: "12345",
-            role: "admin",
-          },
-        ],
-      })
-    );
-    localStorage.setItem(
-      "courses",
-      JSON.stringify({
-        table_name: "courses",
-        table_data: [
-          {
-            id: 0,
-            courseName: "CSS Stylesheet",
-            author: "rock lee",
-            is_ok: true,
-            question: morkDataDefault,
-          },
-        ],
-      })
-    );
-  }
+  // if (!localStorage.getItem("account") && !localStorage.getItem("courses")) {
+  // }
+  localStorage.setItem(
+    "account",
+    JSON.stringify({
+      table_name: "account",
+      table_data: [
+        {
+          user_id: 0,
+          user_name: "hoang72fx",
+          user_password: "12345",
+          role: "admin",
+        },
+      ],
+    })
+  );
+  localStorage.setItem(
+    "courses",
+    JSON.stringify({
+      table_name: "courses",
+      table_data: [
+        {
+          id: 0,
+          courseName: "CSS Stylesheet",
+          author: "rock lee",
+          is_ok: true,
+          question: morkDataDefault,
+        },
+      ],
+    })
+  );
 };
 //------------------------------Auth Context ----------------
 export const authGenerator = (props) => {
@@ -94,9 +94,10 @@ export const deleteAccount = (user_id) => {
 };
 
 //---------------------------fetch all data------------------------
-const { table_data } = JSON.parse(localStorage.getItem("courses"));
+
 //-----------------Course---------------------
-export const fetchAllCourse = () => {
+export const fetchAllCourse = (id) => {
+  const { table_data } = JSON.parse(localStorage.getItem("courses"));
   return table_data;
 };
 
@@ -105,8 +106,10 @@ export const postCourse = (req) => {};
 export const deleteCourse = (id) => {};
 
 //-----------------Question-------------------
-export const fetchAllQuestion = () => {
-  return table_data.question;
+export const fetchAllQuestion = (id) => {
+  const { table_data } = JSON.parse(localStorage.getItem("courses"));
+  const allQuestion = table_data.find((item) => item.id === id);
+  return allQuestion.question;
 };
 
 export const postQuestion = (req) => {};

@@ -1,7 +1,7 @@
 export const morkDataDefault = [
   {
     id: 1,
-    question: "CSS là từ viết tắt của",
+    question: "CSS là từ viết tắt của ?",
     options: [
       {
         id: 1,
@@ -22,6 +22,7 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
     pendings: false,
   },
   {
@@ -48,6 +49,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -73,6 +76,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -98,6 +103,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -123,6 +130,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 1,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -148,6 +157,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 1,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -173,6 +184,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -198,6 +211,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -223,6 +238,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -248,6 +265,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -273,6 +292,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -299,6 +320,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 1,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -324,6 +347,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -349,6 +374,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -375,6 +402,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -400,6 +429,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -417,6 +448,8 @@ export const morkDataDefault = [
       },
     ],
     correctOptionId: 2,
+    author: "hutao",
+
     is_ok: true,
     pendings: false,
   },
@@ -444,6 +477,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -471,6 +506,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 1,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -496,6 +533,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -521,6 +560,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -546,6 +587,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 1,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -567,6 +610,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 1,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -589,6 +634,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -614,6 +661,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 3,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -640,6 +689,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -658,6 +709,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 2,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -683,6 +736,8 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
+
     pendings: false,
   },
   {
@@ -709,6 +764,7 @@ export const morkDataDefault = [
     ],
     correctOptionId: 4,
     is_ok: true,
+    author: "hutao",
     pendings: false,
   },
 ];

@@ -3,6 +3,10 @@ import {
   fetchAllAccount,
   postAccount,
 } from "../middleWare/index.js";
+import {
+  showToastDanger,
+  showToastSuccess,
+} from "../page/components/component/popup.js";
 
 export const getQueryAccount = (req) => {
   const flagLogin = false;
@@ -22,6 +26,10 @@ export const getQueryAccount = (req) => {
   });
   if (checkValue) {
     authGenerator(roleUser);
+    showToastSuccess("Đăng nhập thành công !");
+    localStorage.setItem("userName", req.userName);
+  } else {
+    showToastDanger("Tên đăng nhập và mật khẩu không đúng !");
   }
 };
 
@@ -37,10 +45,16 @@ export const registerQueryAccount = (req) => {
       role: "user",
     };
     postAccount(data);
-    console.log(true);
   };
-  registerAccount(req);
-  // return { comment: "Already registered", registed: true };
+  if (req.userName == "" && req.userPassword == "") {
+    showToastDanger("Vui lòng điền hết thông tin !");
+  } else {
+    registerAccount(req);
+    showToastSuccess(
+      "Đăng kí thành công ! Vui lòng đợi 3 giây quay về trang đăng nhập!"
+    );
+    setTimeout(() => {
+      window.location.replace("/page/auth/login.html");
+    }, 3000);
+  }
 };
-
-// { comment: "Account has been exist! ", registed: false

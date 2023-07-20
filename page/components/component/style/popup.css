@@ -1,0 +1,16 @@
+#toast {
+  position: absolute;
+  right: 0%;
+  top: 30%;
+}
+.toast {
+  position: relative;
+  color: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  padding: 20px 50px 20px 50px;
+  margin: 20px 0px 20px 3px;
+  right: -37%;
+  transform: translateX(-50%);
+  opacity: 1;
+}

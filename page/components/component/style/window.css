@@ -1,0 +1,45 @@
+.window,
+.windowQues,
+.windel {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#popup-win,
+#popup-question {
+  width: 70%;
+  background-color: white;
+  box-shadow: -20px 21px 169px;
+}
+
+.window-content {
+  margin: 12px 12px 12px 12px;
+}
+
+.content-form && .content-table {
+  width: 100%;
+}
+
+.content-table {
+  padding: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
+}
+
+.window-close {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin: 10px 20px 10px 20px;
+  font-size: 30px;
+}
+
+.form-question {
+  padding: 10px 10px 10px 10px;
+}
