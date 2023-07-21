@@ -1,5 +1,8 @@
 import { TableCourse } from "./table.js";
 import { CheckForm, FormButtons } from "./form.js";
+import { showToastSuccess } from "./popup.js";
+import { refreshComponent, useState } from "../../../hook/index.js";
+import { User } from "../admin/user.js";
 export const Window = (props, methodFetch, func) => {
   const element = document.createElement("div");
   element.setAttribute("class", "window");
@@ -99,12 +102,18 @@ export const Question = (props, id) => {
   return { element };
 };
 
-export const addNewCourse = (func) => {
+export const addNewCourse = (callBack) => {
   const element = document.createElement("div");
   element.setAttribute("class", "window");
   window.removePopup = () => {
     const closePopup = document.querySelector(".window");
     document.body.removeChild(closePopup);
+  };
+  window.addCourse = () => {
+    const getInput = element.getElementsByClassName("input-course")[0].value;
+    removePopup();
+    callBack({ courseName: getInput });
+    showToastSuccess("Course added successfully");
   };
   element.innerHTML = `
   <div id="popup-question" style="width:45%">
@@ -114,10 +123,10 @@ export const addNewCourse = (func) => {
        <div class="window-content">
           <form>
              <h3>Thêm khóa học</h3>
-             <input type="input" style="width:90%" placeholder="Nội dung khóa học"/>
+             <input class="input-course" type="input" style="width:90%" placeholder="Nội dung khóa học"/>
           </form>
           <div class="form-button">
-              <button class="button-lagre" style="color:white; background-color:green">Thêm khóa học</button>
+              <button onclick="addCourse()" class="button-lagre" style="color:white; background-color:green">Thêm khóa học</button>
           </div>
      </div>
     </div>
@@ -125,14 +134,14 @@ export const addNewCourse = (func) => {
   return { element };
 };
 
-export const DeletePopup = (label, id) => {
+export const DeletePopup = (label, id, callBack) => {
   const element = document.createElement("div");
   element.setAttribute("class", "windel");
   window.removePopup = () => {
     const closePopup = document.querySelector(".windel");
     document.body.removeChild(closePopup);
   };
-  const deleteID = "deleteCourse(" + id + ")";
+  const deleteID = callBack + "(" + id + ")";
   const listButtonForm = [
     {
       name: "Hủy",
@@ -161,4 +170,43 @@ export const DeletePopup = (label, id) => {
    `;
 
   return { element };
+};
+
+export const addNewUser = (callBack) => {
+  const element = document.createElement("div");
+  element.setAttribute("class", "window");
+  window.removePopup = () => {
+    const closePopup = document.querySelector(".window");
+    document.body.removeChild(closePopup);
+  };
+  const { setState, getState } = useState(false);
+  window.addNewUserToArray = () => {
+    const closePopup = document.querySelector(".window");
+    const username = element.getElementsByClassName("content-input")[0].value;
+    const password = element.getElementsByClassName("content-input")[1].value;
+    refreshComponent(User());
+    document.body.removeChild(closePopup);
+    callBack({ user_name: username, user_password: password });
+    showToastSuccess("Thêm User thành công !");
+    setState(true);
+  };
+  element.innerHTML = `
+  <div id="popup-question" style="width:45%">
+        <div class="window-close">
+         <i class="fa-solid fa-xmark" onclick="removePopup()"></i>
+       </div>
+       <div class="window-content">
+          <form>
+             <h3>Thêm User</h3>
+             <input class="content-input" type="input" style="width:90%" placeholder="Username"/>
+             <input class="content-input" type="password" style="width:90%" placeholder="Passwords"/>
+          </form>
+          <div class="form-button">
+              <button onclick="addNewUserToArray()" class="button-lagre" style="color:white; background-color:green">Thêm User</button>
+          </div>
+     </div>
+    </div>
+   `;
+
+  return { element, getState };
 };

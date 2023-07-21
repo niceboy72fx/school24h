@@ -1,19 +1,24 @@
 import { Table } from "../component/table.js";
 import {
   fetchAllCourse,
+  postCourse,
+  deleteCourse,
   fetchAllQuestion,
   postQuestion,
 } from "../../../middleWare/index.js";
 import { FormButtons } from "../component/form.js";
 import { Window, addNewCourse, DeletePopup } from "../component/window.js";
+import { showToastSuccess } from "../component/popup.js";
 export const Course = () => {
   const data = fetchAllCourse();
+  console.log(data);
   const list = ["STT", "Tên khóa học", "Trạng thái", "Thao tác"];
   const table = Table(list, data);
   window.addNewCourse = () => {
-    const add = addNewCourse();
+    const add = addNewCourse(postCourse);
     document.body.appendChild(add.element);
   };
+
   const listButton = [
     {
       name: "Thêm khóa học",
@@ -35,12 +40,17 @@ export const Course = () => {
     document.body.appendChild(windowForm.element);
   };
   window.deleteCourse = (eventID) => {
-    console.log(eventID);
     const closePopup = document.querySelector(".windel");
     document.body.removeChild(closePopup);
+    deleteCourse(eventID);
+    showToastSuccess("Course deleted successfully !");
   };
   window.deletePopupCourse = (eventID) => {
-    const deletePopup = DeletePopup("Bạn có chắc xóa mục này không ?", eventID);
+    const deletePopup = DeletePopup(
+      "Bạn có chắc xóa khóa học này không ?",
+      eventID,
+      "deleteCourse"
+    );
     document.body.appendChild(deletePopup.element);
   };
   element.innerHTML = `
@@ -52,5 +62,6 @@ export const Course = () => {
       ${table.element.outerHTML}
   </div>
    `;
+  element.setAttribute("id", "container");
   return element;
 };

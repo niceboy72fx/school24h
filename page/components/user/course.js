@@ -48,9 +48,9 @@ export const Course = () => {
      Khóa học
   </div>
   <div class="course-content" >
-      ${formButton.element.outerHTML}
       ${table.element.outerHTML}
   </div>
    `;
+  element.setAttribute("id", "container");
   return element;
 };

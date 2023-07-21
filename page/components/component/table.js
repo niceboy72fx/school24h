@@ -1,6 +1,8 @@
 export const Table = (list, props) => {
   const element = document.createElement("div");
+  const role = localStorage.getItem("accessToken");
   element.setAttribute("class", "table");
+  console.log(props);
   element.innerHTML = `
      <table id="table" >
       <thead>
@@ -18,9 +20,11 @@ export const Table = (list, props) => {
             <i  id="edit" onclick="eventListenCourse('${
               item.id
             }')" class="fa-regular fa-pen-to-square" style="margin-left: 12px ; margin-rightL 12px"></i>
-            <i onclick="deletePopupCourse('${
-              item.id
-            }')" class="fa-solid fa-trash" style="margin-left: 12px ; margin-rightL 12px"></i>
+            ${
+              role == "admin"
+                ? `<i onclick="deletePopupCourse('${item.id}')" class="fa-solid fa-trash" style="margin-left: 12px ; margin-rightL 12px"></i>`
+                : ``
+            } 
            </th>
          </tr>`
          )}
@@ -86,8 +90,8 @@ export const TableUserAdmin = (list, props) => {
               item.role == "admin"
                 ? ``
                 : `
-              <i id="edit" onclick="eventListenCourse('${item.id}')" class="fa-regular fa-pen-to-square" style="margin-left: 12px ; margin-rightL 12px"></i>
-            <i onclick="deletePopupCourse('${item.id}')" class="fa-solid fa-trash" style="margin-left: 12px ; margin-rightL 12px"></i>
+              <i id="edit" onclick="eventListenCourse('${item.user_id}')" class="fa-regular fa-pen-to-square" style="margin-left: 12px ; margin-rightL 12px"></i>
+            <i onclick="deletePopupUser('${item.user_id}')" class="fa-solid fa-trash" style="margin-left: 12px ; margin-rightL 12px"></i>
             `
             }
            </th>
@@ -96,5 +100,6 @@ export const TableUserAdmin = (list, props) => {
       </tbody>
     </table>
    `;
+  element.setAttribute("id", "re-container");
   return { element };
 };

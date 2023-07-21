@@ -48,7 +48,7 @@ export const authGenerator = (props) => {
 
 export const logout = () => {
   localStorage.removeItem("accessToken");
-  window.location.replace("/index.html");
+  window.location.replace("/page/auth/login.html");
 };
 //------------------------------Account----------------
 export const fetchAllAccount = () => {
@@ -58,8 +58,12 @@ export const fetchAllAccount = () => {
 
 export const postAccount = (req) => {
   const data = fetchAllAccount();
-  console.log(req);
-  data.push(req);
+  data.push({
+    user_id: data.length + 1,
+    user_name: req.user_name,
+    user_password: req.user_password,
+    role: "user",
+  });
   localStorage.setItem(
     "account",
     JSON.stringify({
@@ -67,6 +71,7 @@ export const postAccount = (req) => {
       table_data: data,
     })
   );
+  console.log(data);
 };
 
 export const putAccount = (user_id, value) => {
@@ -83,7 +88,10 @@ export const putAccount = (user_id, value) => {
 
 export const deleteAccount = (user_id) => {
   const data = fetchAllAccount();
-  data.remove(user_id - 1);
+  const findIndexToRemove = data.findIndex((item) => item.user_id === user_id);
+  if (findIndexToRemove !== -1) {
+    data.splice(findIndexToRemove, 1);
+  }
   localStorage.setItem(
     "account",
     JSON.stringify({
@@ -96,14 +104,44 @@ export const deleteAccount = (user_id) => {
 //---------------------------fetch all data------------------------
 
 //-----------------Course---------------------
-export const fetchAllCourse = (id) => {
+export const fetchAllCourse = () => {
   const { table_data } = JSON.parse(localStorage.getItem("courses"));
   return table_data;
 };
 
-export const postCourse = (req) => {};
+export const postCourse = (req) => {
+  const data = fetchAllCourse();
+  const userName = localStorage.getItem("userName");
+  data.push({
+    id: data.length == 1 ? 1 : data.length + 1,
+    courseName: req.courseName,
+    author: userName,
+    is_ok: true,
+    question: [],
+  });
+  localStorage.setItem(
+    "courses",
+    JSON.stringify({
+      table_name: "courses",
+      table_data: data,
+    })
+  );
+};
 
-export const deleteCourse = (id) => {};
+export const deleteCourse = (id) => {
+  const data = fetchAllCourse();
+  const findIndexToRemove = data.findIndex((item) => item.id === id);
+  if (findIndexToRemove !== -1) {
+    data.splice(findIndexToRemove, 1);
+  }
+  localStorage.setItem(
+    "courses",
+    JSON.stringify({
+      table_name: "courses",
+      table_data: data,
+    })
+  );
+};
 
 //-----------------Question-------------------
 export const fetchAllQuestion = (id) => {

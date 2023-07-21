@@ -11,8 +11,10 @@ window.addEventListener("load", () => {
   }, 2000);
 });
 
-if (
-  window.location.href == "./" &&
-  localStorage.getItem("accessToken") === undefined
-) {
-}
+const login = () => {
+  window.location.replace("/page/auth/login.html");
+};
+
+const signup = () => {
+  window.location.replace("/page/auth/signup.html");
+};
