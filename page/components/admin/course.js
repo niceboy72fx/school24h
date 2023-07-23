@@ -4,14 +4,12 @@ import {
   postCourse,
   deleteCourse,
   fetchAllQuestion,
-  postQuestion,
 } from "../../../middleWare/index.js";
 import { FormButtons } from "../component/form.js";
 import { Window, addNewCourse, DeletePopup } from "../component/window.js";
 import { showToastSuccess } from "../component/popup.js";
 export const Course = () => {
   const data = fetchAllCourse();
-  console.log(data);
   const list = ["STT", "Tên khóa học", "Trạng thái", "Thao tác"];
   const table = Table(list, data);
   window.addNewCourse = () => {
@@ -35,7 +33,8 @@ export const Course = () => {
   window.eventListenCourse = (eventID) => {
     const windowForm = Window(
       fetchAllQuestion(parseInt(eventID)),
-      postQuestion
+      parseInt(eventID),
+      eventID
     );
     document.body.appendChild(windowForm.element);
   };

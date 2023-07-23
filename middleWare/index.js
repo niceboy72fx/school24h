@@ -1,4 +1,5 @@
 import { morkDataDefault } from "../asset/json/default.js";
+import { useState } from "../hook/index.js";
 //-------------------------------COMMON----------------
 export const activeDB = () => {
   // if (!localStorage.getItem("account") && !localStorage.getItem("courses")) {
@@ -150,10 +151,59 @@ export const fetchAllQuestion = (id) => {
   return allQuestion.question;
 };
 
-export const postQuestion = (req) => {};
+export const postQuestion = (req, id) => {
+  const { table_data } = JSON.parse(localStorage.getItem("courses"));
+  const data = table_data.find((item) => item.id === id);
+  const { question } = data;
+};
 
-export const putQuestion = (id) => {};
+export const putQuestion = (id, idQues, req) => {
+  const { table_data } = JSON.parse(localStorage.getItem("courses"));
+  const courseIndex = table_data.findIndex((item) => item.id == id);
+  if (courseIndex !== -1) {
+    const updatedTableData = [...table_data];
+    const course = { ...updatedTableData[courseIndex] };
+    const questionIndex = course.question.findIndex(
+      (ques) => ques.id === parseInt(idQues)
+    );
 
-export const deleteQuestion = (id) => {};
+    if (questionIndex !== -1) {
+      course.question[questionIndex] = {
+        ...course.question[questionIndex],
+        question: req.question || course.question[questionIndex].question,
+        options: req.options || course.question[questionIndex].options,
+        correctOptionId:
+          req.correctOptionId || course.question[questionIndex].correctOptionId,
+        author: req.author || course.question[questionIndex].author,
+        pendings: req.pendings || course.question[questionIndex].pendings,
+      };
+      updatedTableData[courseIndex] = course;
+      localStorage.setItem(
+        "courses",
+        JSON.stringify({
+          table_name: "courses",
+          table_data: updatedTableData,
+        })
+      );
+    }
+  }
+};
+
+export const deleteQuestion = (id, idQues) => {
+  const { table_data } = JSON.parse(localStorage.getItem("courses"));
+  const data = table_data.find((item) => item.id === id);
+  const { question } = data;
+  const findIndexToRemove = question.findIndex((item) => item.id === idQues);
+  if (findIndexToRemove !== -1) {
+    question.splice(findIndexToRemove, 1);
+  }
+  localStorage.setItem(
+    "courses",
+    JSON.stringify({
+      table_name: "courses",
+      table_data: table_data,
+    })
+  );
+};
 
 //-------------------------------------------

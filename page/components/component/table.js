@@ -2,7 +2,6 @@ export const Table = (list, props) => {
   const element = document.createElement("div");
   const role = localStorage.getItem("accessToken");
   element.setAttribute("class", "table");
-  console.log(props);
   element.innerHTML = `
      <table id="table" >
       <thead>
@@ -22,7 +21,7 @@ export const Table = (list, props) => {
             }')" class="fa-regular fa-pen-to-square" style="margin-left: 12px ; margin-rightL 12px"></i>
             ${
               role == "admin"
-                ? `<i onclick="deletePopupCourse('${item.id}')" class="fa-solid fa-trash" style="margin-left: 12px ; margin-rightL 12px"></i>`
+                ? `<i onclick="deleteCourseWin('${item.id}')" class="fa-solid fa-trash" style="margin-left: 12px ; margin-rightL 12px"></i>`
                 : ``
             } 
            </th>
