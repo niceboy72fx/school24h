@@ -2,37 +2,39 @@ import { morkDataDefault } from "../asset/json/default.js";
 import { useState } from "../hook/index.js";
 //-------------------------------COMMON----------------
 export const activeDB = () => {
-  // if (!localStorage.getItem("account") && !localStorage.getItem("courses")) {
-  // }
-  localStorage.setItem(
-    "account",
-    JSON.stringify({
-      table_name: "account",
-      table_data: [
-        {
-          user_id: 0,
-          user_name: "hoang72fx",
-          user_password: "12345",
-          role: "admin",
-        },
-      ],
-    })
-  );
-  localStorage.setItem(
-    "courses",
-    JSON.stringify({
-      table_name: "courses",
-      table_data: [
-        {
-          id: 0,
-          courseName: "CSS Stylesheet",
-          author: "rock lee",
-          is_ok: true,
-          question: morkDataDefault,
-        },
-      ],
-    })
-  );
+  const accountData = localStorage.getItem("account");
+  const coursesData = localStorage.getItem("courses");
+  if (!accountData && !coursesData) {
+    localStorage.setItem(
+      "account",
+      JSON.stringify({
+        table_name: "account",
+        table_data: [
+          {
+            user_id: 0,
+            user_name: "hoang72fx",
+            user_password: "12345",
+            role: "admin",
+          },
+        ],
+      })
+    );
+    localStorage.setItem(
+      "courses",
+      JSON.stringify({
+        table_name: "courses",
+        table_data: [
+          {
+            id: 0,
+            courseName: "CSS Stylesheet",
+            author: "rock lee",
+            is_ok: true,
+            question: morkDataDefault,
+          },
+        ],
+      })
+    );
+  }
 };
 //------------------------------Auth Context ----------------
 export const authGenerator = (props) => {
@@ -49,7 +51,7 @@ export const authGenerator = (props) => {
 
 export const logout = () => {
   localStorage.removeItem("accessToken");
-  window.location.replace("/page/auth/login.html");
+  window.location.replace("/index.html");
 };
 //------------------------------Account----------------
 export const fetchAllAccount = () => {

@@ -8,6 +8,10 @@ import {
   deleteQuestion,
 } from "../../../middleWare/index.js";
 import { User } from "../admin/user.js";
+
+const getUserRole =
+  localStorage.getItem("accessToken") === "admin" ? true : false;
+
 export const Window = (props, idCourses, id) => {
   const element = document.createElement("div");
   element.setAttribute("class", "window");
@@ -18,7 +22,6 @@ export const Window = (props, idCourses, id) => {
     "Số câu trả lời",
     "Tác giả",
     "Xét duyệt",
-    "Trạng thái",
     "Thao tác",
   ];
   const table = TableCourse(listTableCourse, props);
@@ -124,8 +127,8 @@ export const Question = (props, id, idCourses) => {
       question: question,
       options: getState(),
       correctOptionId: correct,
-      is_ok: true,
-      author: "hutao",
+      is_ok: item.is_ok,
+      author: item.author,
       pendings: false,
     };
     putQuestion(idCourses, id, req);
@@ -166,6 +169,24 @@ export const Question = (props, id, idCourses) => {
               `
             )}
          </div>
+         ${
+           getUserRole
+             ? ` <div style="width:100% ; display: flex ; flex-direction: row ; align-item:center ; justify-content: center;">
+                <div style="margin:20px 20px 20px 20px">
+                   <input type="radio" name="is_ok" ${
+                     item.is_ok ? `checked='true'` : ``
+                   } class="btn btn-primary" />
+                   <label>Duyệt</label>
+                </div>
+                <div style="margin:20px 20px 20px 20px">
+                   <input type="radio" name="is_ok"  ${
+                     !item.is_ok ? `checked='true'` : ``
+                   } class="btn btn-primary"/>
+                   <label>Chưa duyệt</label>
+                </div>
+          </div>`
+             : ``
+         }
           <div class="form-button">
                 <button onclick="fetchChangeData()" class="button-lagre" style="color:white; background-color:green">Sửa</button>
           </div>

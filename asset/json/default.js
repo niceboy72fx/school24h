@@ -102,7 +102,7 @@ export const morkDataDefault = [
       },
     ],
     correctOptionId: 2,
-    is_ok: true,
+    is_ok: false,
     author: "hutao",
 
     pendings: false,

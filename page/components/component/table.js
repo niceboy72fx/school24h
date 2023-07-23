@@ -51,7 +51,6 @@ export const TableCourse = (list, props) => {
            <th>${item.options.length}</th>
            <th>${item.author}</th>
            <th>${item.is_ok ? "Duyệt" : "Chưa Duyệt"}</th>
-           <th>${item.pendings ? "Chờ xem" : "Đã xem"}</th>
            <th >
             <i  onclick="eventListen('${
               item.id
