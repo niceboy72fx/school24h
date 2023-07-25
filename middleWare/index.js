@@ -1,5 +1,9 @@
 import { morkDataDefault } from "../asset/json/default.js";
 import { useState } from "../hook/index.js";
+import {
+  showToastDanger,
+  showToastSuccess,
+} from "../page/components/component/popup.js";
 //-------------------------------COMMON----------------
 export const activeDB = () => {
   const accountData = localStorage.getItem("account");
@@ -61,20 +65,26 @@ export const fetchAllAccount = () => {
 
 export const postAccount = (req) => {
   const data = fetchAllAccount();
-  data.push({
-    user_id: data.length + 1,
-    user_name: req.user_name,
-    user_password: req.user_password,
-    role: "user",
+  const checkValue = data.some((data) => {
+    return data.user_name === req.user_name;
   });
-  localStorage.setItem(
-    "account",
-    JSON.stringify({
-      table_name: "account",
-      table_data: data,
-    })
-  );
-  console.log(data);
+  if (checkValue) {
+    showToastDanger("Account has been registered");
+  } else {
+    data.push({
+      user_id: data.length + 1,
+      user_name: req.user_name,
+      user_password: req.user_password,
+      role: "user",
+    });
+    localStorage.setItem(
+      "account",
+      JSON.stringify({
+        table_name: "account",
+        table_data: data,
+      })
+    );
+  }
 };
 
 export const putAccount = (user_id, value) => {
@@ -157,6 +167,18 @@ export const postQuestion = (req, id) => {
   const { table_data } = JSON.parse(localStorage.getItem("courses"));
   const data = table_data.find((item) => item.id === id);
   const { question } = data;
+  question.push({
+    id: id + 1,
+    ...req,
+  });
+  localStorage.setItem(
+    "courses",
+    JSON.stringify({
+      table_name: "courses",
+      table_data: table_data,
+    })
+  );
+  showToastSuccess("Add questions successfully !");
 };
 
 export const putQuestion = (id, idQues, req) => {

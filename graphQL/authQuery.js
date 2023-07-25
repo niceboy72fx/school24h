@@ -9,7 +9,6 @@ import {
 } from "../page/components/component/popup.js";
 
 export const getQueryAccount = (req) => {
-  const flagLogin = false;
   const checkValue = fetchAllAccount().some((data) => {
     return (
       req.userName == data.user_name && req.userPassword == data.user_password
@@ -26,10 +25,10 @@ export const getQueryAccount = (req) => {
   });
   if (checkValue) {
     authGenerator(roleUser);
-    showToastSuccess("Đăng nhập thành công !");
+    showToastSuccess("Login success !");
     localStorage.setItem("userName", req.userName);
   } else {
-    showToastDanger("Tên đăng nhập và mật khẩu không đúng !");
+    showToastDanger("Username or Password incorrect !");
   }
 };
 
@@ -47,11 +46,11 @@ export const registerQueryAccount = (req) => {
     postAccount(data);
   };
   if (req.userName == "" && req.userPassword == "") {
-    showToastDanger("Vui lòng điền hết thông tin !");
+    showToastDanger("Please fill  !");
   } else {
     registerAccount(req);
     showToastSuccess(
-      "Đăng kí thành công ! Vui lòng đợi 3 giây quay về trang đăng nhập!"
+      "Register success ! Please wait 3 seconds back to login !"
     );
     setTimeout(() => {
       window.location.replace("/page/auth/login.html");

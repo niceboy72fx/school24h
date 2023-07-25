@@ -25,7 +25,7 @@ export const Window = (props, idCourses, id) => {
     "Thao tác",
   ];
   const table = TableCourse(listTableCourse, props);
-  const form = CheckForm();
+  const form = CheckForm(idCourses);
   window.eventListen = (eventID) => {
     const showInforQuestion = Question(props, eventID, id);
     document.body.appendChild(showInforQuestion.element);
@@ -54,7 +54,7 @@ export const Window = (props, idCourses, id) => {
        </div>
       <div class="window-content">
         <div class="content-form">
-           ${form.outerHTML}
+           ${form.element.outerHTML}
         </div>
        <div class="content-table">
           ${table.element.outerHTML}

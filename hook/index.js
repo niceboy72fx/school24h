@@ -10,8 +10,8 @@ export const useState = (initValue) => {
 };
 
 export const refreshComponent = (component) => {
-  const userContainer = document.getElementById("re-container");
-  userContainer.innerHTML = "";
-  const refreshedComponent = component;
-  userContainer.appendChild(refreshedComponent);
+  // const userContainer = document.getElementById(component);
+  // userContainer.innerHTML = "";
+  // const refreshedComponent = ;
+  // userContainer.appendChild(refreshedComponent);
 };

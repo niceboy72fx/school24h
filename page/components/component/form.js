@@ -1,5 +1,6 @@
 import { useState } from "../../../hook/index.js";
-
+import { showToastDanger, showToastSuccess } from "./popup.js";
+import { postQuestion } from "../../../middleWare/index.js";
 export const FormButtons = (listButton) => {
   const element = document.createElement("div");
   element.setAttribute("class", "form-button");
@@ -10,43 +11,80 @@ export const FormButtons = (listButton) => {
   return { element };
 };
 
-export const CheckForm = () => {
+export const CheckForm = (idCourses) => {
+  console.log(idCourses);
   const element = document.createElement("div");
-  const question = element.querySelector("#question");
+  const getOptioSelectRadioButton = element.querySelectorAll(".answer-options");
+  const getUserName = localStorage.getItem("userName");
   element.setAttribute("class", "form");
-  const temp = [];
-  const optionsSelect = [];
-  for (let i = 1; i <= 10; i++) {
-    optionsSelect.push(`<option value=${i}>${i}</option>`);
+  element.setAttribute("id", "re-container");
+  const optionsSelect = [1, 2, 3, 4];
+  for (let radioButton of getOptioSelectRadioButton) {
+    radioButton.addEventListener("click", () => {
+      console.log("test");
+      for (const otherButton of getOptioSelectRadioButton) {
+        if (otherButton !== radioButton) {
+          otherButton.setAttribute("checked", false);
+        }
+      }
+      radioButton.setAttribute("checked", true);
+    });
   }
-  const { setState, getState } = useState(``);
+  window.postCourse = () => {
+    const getOptioSelectRadio = element.querySelectorAll(".answer-options");
+    const getQuestion = element.querySelector(".answer-content");
+    const getAnswer = element.querySelectorAll("#answer-content");
+    let selectedValue = null;
+
+    for (const radioButton of getOptioSelectRadio) {
+      if (radioButton.checked) {
+        selectedValue = radioButton.value;
+        break;
+      }
+    }
+    if (selectedValue !== null && getQuestion.value !== "") {
+      const option = [];
+      optionsSelect.forEach((item) =>
+        option.push({ id: item, option: getAnswer[item - 1].value })
+      );
+      const data = {
+        question: getQuestion.value,
+        options: option,
+        correctOptionId: selectedValue,
+        is_ok: false,
+        author: getUserName,
+        pendings: false,
+      };
+      postQuestion(data, idCourses);
+    } else {
+      showToastDanger("Please fill !");
+    }
+  };
   element.innerHTML = `
-     <form>
+     <form style="display:flex; align-items:center; justify-content:center;">
        <input type="input" placeholder="Nội dung câu hỏi"/>
-       <label for="question">Số lượng câu trả lời</label>
-       <select onchange="receive(event.target.value)" name="question" class="form-question">
-          ${optionsSelect}
-        </select>
-     </form>
-     <div id="question">
-       ${temp.outerHTML}
-     </div>
+       <div style="display:flex; align-items:center; justify-content:center; border-radius: 5px ; border: 2px solid var(--dark-blue-background);">
+            <label style="margin:10px 10px 10px 10px" for="question">Số lượng câu trả lời</label>
+            <input id="input-num" type="number" value="1" style="margin:10px 10px 10px 10px; width: 50px; height:30px"/>
+            <button onclick="receiveCountQuestion()" type="button" class="button-lagre" style="border-radius: 5px; color:white; background-color: var(--dark-blue-background)">Số câu hỏi</button>
+       </div>
+      </form>
+      <div id="question" style=" border-radius: 5px ; border: 2px solid var(--dark-blue-background);">
+          ${optionsSelect.map(
+            (i) => `
+             <div id=${i}>
+               <input class="answer-options" name="option" type="radio" value=${i} checked="false"  ></input>
+               <input
+                 type="input"
+                 id="answer-content"
+                 placeholder="Nội dung câu trả lời"
+                 style="width:90%; font-size:14px; padding: 14px 14px 14px 14px; margin:12px 5px 12px 0px;"/> 
+            </div>
+          `
+          )}
+          <button onclick="postCourse()" type="button" class="button-lagre" style="border-radius: 5px; color:white; background-color: var(--dark-blue-background)">Add</button>
+      </div>
    `;
 
-  window.receive = (count) => {
-    for (let i = 0; i < count; i++) {
-      temp.push(`
-        <div>
-              <input id="answer-options" name="option" type="radio"></input>
-              <input
-                   type="input"
-                   id="question-option"
-                   style="width:90%; font-size:14px; padding: 14px 14px 14px 14px; margin:12px 5px 12px 0px;"/> 
-                  <i  class="fa-solid fa-xmark" "></i>
-          </div>
-      `);
-    }
-    console.log(temp);
-  };
-  return element;
+  return { element };
 };

@@ -17,6 +17,8 @@
   width: 70%;
   background-color: white;
   box-shadow: -20px 21px 169px;
+  max-height: 600px;
+  overflow: scroll;
 }
 
 .window-content {
