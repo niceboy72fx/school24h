@@ -168,7 +168,7 @@ export const postQuestion = (req, id) => {
   const data = table_data.find((item) => item.id === id);
   const { question } = data;
   question.push({
-    id: id + 1,
+    id: question.length + 1,
     ...req,
   });
   localStorage.setItem(

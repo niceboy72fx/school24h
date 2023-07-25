@@ -31,9 +31,9 @@ export const CheckForm = (idCourses) => {
     });
   }
   window.postCourse = () => {
-    const getOptioSelectRadio = element.querySelectorAll(".answer-options");
-    const getQuestion = element.querySelector(".answer-content");
-    const getAnswer = element.querySelectorAll("#answer-content");
+    const getOptioSelectRadio = document.querySelectorAll(".answer-options");
+    const getQuestion = document.querySelector("#answer-content");
+    const getAnswer = document.querySelectorAll("#answer-content");
     let selectedValue = null;
 
     for (const radioButton of getOptioSelectRadio) {
@@ -42,7 +42,7 @@ export const CheckForm = (idCourses) => {
         break;
       }
     }
-    if (selectedValue !== null && getQuestion.value !== "") {
+    if (selectedValue !== null) {
       const option = [];
       optionsSelect.forEach((item) =>
         option.push({ id: item, option: getAnswer[item - 1].value })
@@ -57,6 +57,7 @@ export const CheckForm = (idCourses) => {
       };
       postQuestion(data, idCourses);
     } else {
+      console.log(getQuestion.value);
       showToastDanger("Please fill !");
     }
   };
